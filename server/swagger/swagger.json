@@ -1,0 +1,20 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "RBAC scaffolding based on GIN + GORM/MONGO + CASBIN + WIRE.",
+        "title": "mag-server",
+        "contact": {},
+        "license": {},
+        "version": "1.0.0"
+    },
+    "host": "{{.Host}}",
+    "basePath": "/",
+    "paths": {},
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

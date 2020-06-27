@@ -1,0 +1,15 @@
+basePath: /
+host: '{{.Host}}'
+info:
+  contact: {}
+  description: RBAC scaffolding based on GIN + GORM/MONGO + CASBIN + WIRE.
+  license: {}
+  title: mag-server
+  version: 1.0.0
+paths: {}
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

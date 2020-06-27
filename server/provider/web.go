@@ -4,8 +4,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/key7men/mag/server/config"
 	"github.com/key7men/mag/server/middleware"
-	"github.com/"
+	"github.com/key7men/mag/server/assist/gzip"
 	"github.com/key7men/mag/server/router"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	swaggerFiles "github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 // InitGinEngine 初始化gin引擎
@@ -38,7 +40,7 @@ func InitGinEngine(r router.IRouter) *gin.Engine {
 	// GZIP
 	if config.C.GZIP.Enable {
 		app.Use(gzip.Gzip(gzip.BestCompression,
-			gzip.WithExcludedExtensions(config.C.GZIP.ExcludedExtentions),
+			gzip.WithExcludedExts(config.C.GZIP.ExcludedExts),
 			gzip.WithExcludedPaths(config.C.GZIP.ExcludedPaths),
 		))
 	}
@@ -51,9 +53,9 @@ func InitGinEngine(r router.IRouter) *gin.Engine {
 		app.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	}
 
-	// Website
-	if dir := config.C.WWW; dir != "" {
-		app.Use(middleware.WWWMiddleware(dir, middleware.AllowPathPrefixSkipper(prefixes...)))
+	// Static Website
+	if dir := config.C.Static; dir != "" {
+		app.Use(middleware.StaticMiddleware(dir, middleware.AllowPathPrefixSkipper(prefixes...)))
 	}
 
 	return app

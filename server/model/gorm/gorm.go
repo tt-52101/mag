@@ -8,6 +8,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/key7men/mag/pkg/logger"
 	"github.com/key7men/mag/server/config"
+	"github.com/key7men/mag/server/model/gorm/entity"
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )

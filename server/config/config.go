@@ -59,7 +59,7 @@ func PrintWithJSON() {
 // Config 配置参数
 type Config struct {
 	RunMode      string
-	WWW          string
+	Static          string
 	Swagger      bool
 	PrintConfig  bool
 	HTTP         HTTP
@@ -216,7 +216,7 @@ type CORS struct {
 // GZIP gzip压缩
 type GZIP struct {
 	Enable             bool
-	ExcludedExtentions []string
+	ExcludedExts []string
 	ExcludedPaths      []string
 }
 

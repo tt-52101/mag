@@ -54,7 +54,7 @@ func NewExcludedExts(exts []string) ExcludedExts {
 }
 
 // Contain 是否包含指定某扩展类型
-func (e ExcludedExts) Contain(ext string) bool {
+func (e ExcludedExts) Contains(ext string) bool {
 	_, ok := e[ext]
 	return ok
 }
@@ -66,7 +66,7 @@ func NewExcludedPaths(paths []string) ExcludedPaths {
 	return ExcludedPaths(paths)
 }
 
-func (e ExcludedPaths) Contain(path string) bool {
+func (e ExcludedPaths) Contains(path string) bool {
 	for _, p := range e {
 		if strings.HasPrefix(path, p) {
 			return true
