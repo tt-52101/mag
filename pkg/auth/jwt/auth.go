@@ -9,7 +9,7 @@ import (
 	"github.com/key7men/mag/pkg/auth/jwt/store"
 )
 
-const defaultKey = "gin-admin"
+const defaultKey = "mag"
 
 var defaultOptions = options{
 	tokenType:     "Bearer",
@@ -136,7 +136,7 @@ func (a *JWTAuth) DestroyToken(ctx context.Context, tokenString string) error {
 	// 如果设定了存储，则将未过期的令牌放入
 	return a.callStore(func(store store.Storer) error {
 		expired := time.Unix(claims.ExpiresAt, 0).Sub(time.Now())
-		return store.Set(ctx, tokenString, expired)
+		return store.Set(tokenString, expired)
 	})
 }
 
@@ -152,7 +152,7 @@ func (a *JWTAuth) ParseUserID(ctx context.Context, tokenString string) (string, 
 	}
 
 	err = a.callStore(func(store store.Storer) error {
-		if exists, err := store.Check(ctx, tokenString); err != nil {
+		if exists, err := store.Check(tokenString); err != nil {
 			return err
 		} else if exists {
 			return auth.ErrInvalidToken

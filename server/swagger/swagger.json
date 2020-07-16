@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "RBAC scaffolding based on GIN + GORM/MONGO + CASBIN + WIRE.",
-        "title": "mag-server",
+        "title": "mag",
         "contact": {},
         "license": {},
         "version": "1.0.0"

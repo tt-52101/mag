@@ -4,6 +4,8 @@
       <w>casbin</w>
       <w>egin</w>
       <w>exts</w>
+      <w>gorm</w>
+      <w>rbac</w>
     </words>
   </dictionary>
 </component>

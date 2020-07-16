@@ -2,6 +2,7 @@ package gzip
 
 import (
 	"compress/gzip"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,7 +14,7 @@ const (
 )
 
 func Gzip(level int, options ...Option) gin.HandlerFunc {
-	return newGzipHandler(level, options...).Handle
+	return NewGzipHandler(level, options...).Handle
 }
 
 type gzipWriter struct {

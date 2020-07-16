@@ -87,7 +87,7 @@ ConfigDir = ""
 # 登录用户名
 UserName = "root"
 # 登录密码
-Password = "magisstable"
+Password = "magserver"
 # 显示的真实姓名
 RealName = "超级管理员"
 
@@ -104,7 +104,7 @@ Enable = true
 # 签名方式(支持：HS512/HS384/HS512)
 SigningMethod = "HS512"
 # 签名key
-SigningKey = "mag-server"
+SigningKey = "mag"
 # 过期时间（单位秒）
 Expired = 7200
 # 存储(支持：file/redis)
@@ -169,11 +169,11 @@ Host = "127.0.0.1"
 # 连接端口
 Port= 3306
 # 用户名
-User = "root"
+User = "magdbuser"
 # 密码
-Password = "123456"
+Password = "magdbpasswd"
 # 数据库
-DBName = "magdb"
+DBName = "mag"
 # 连接参数
 Parameters = "charset=utf8mb4&parseTime=True&loc=Local&allowNativePasswords=true"
 
@@ -183,11 +183,11 @@ Host = "127.0.0.1"
 # 连接端口
 Port= 5432
 # 用户名
-User = "root"
+User = "magdbuser"
 # 密码
-Password = "123456"
+Password = "magdbpasswd"
 # 数据库
-DBName = "magdb"
+DBName = "mag"
 # SSL模式
 SSLMode = "disable"
 

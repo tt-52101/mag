@@ -9,7 +9,7 @@ Package app 生成swagger文档
 	swag init --generalInfo ./server/swagger.go --output ./server/swagger */
 package server
 
-// @title mag-server
+// @title mag
 // @version 1.0.0
 // @description RBAC scaffolding based on GIN + GORM/MONGO + CASBIN + WIRE.
 // @securityDefinitions.apikey ApiKeyAuth
