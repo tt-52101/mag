@@ -2,7 +2,7 @@ basePath: /
 host: '{{.Host}}'
 info:
   contact: {}
-  description: RBAC scaffolding based on GIN + GORM/MONGO + CASBIN + WIRE.
+  description: 基于Gin+Angular开发的管理平台脚手架
   license: {}
   title: mag
   version: 1.0.0

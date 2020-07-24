@@ -13,12 +13,15 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/dchest/captcha"
+	"github.com/go-redis/redis"
 	"github.com/google/gops/agent"
 	"github.com/key7men/mag/pkg/logger"
 	loggerhook "github.com/key7men/mag/pkg/logger/hook"
 	loggergormhook "github.com/key7men/mag/pkg/logger/hook/gorm"
 	"github.com/key7men/mag/server/assist/uuid"
 	"github.com/key7men/mag/server/config"
+	ecaptcha "github.com/key7men/mag/server/enhance/captcha"
 	"github.com/key7men/mag/server/provider"
 	"github.com/sirupsen/logrus"
 
@@ -104,6 +107,9 @@ func Init(ctx context.Context, opts ...Option) (func(), error) {
 	// 初始化服务运行监控
 	InitMonitor(ctx)
 
+	// 初始化图形验证码
+	InitCaptcha()
+
 	// 初始化依赖注入器
 	injector, injectorCleanFunc, err := provider.BuildInjector()
 	if err != nil {
@@ -128,6 +134,18 @@ func Init(ctx context.Context, opts ...Option) (func(), error) {
 	}, nil
 }
 
+// InitCaptcha 初始化验证码生成器
+func InitCaptcha() {
+	cfg := config.C.Captcha
+	if cfg.Store == "redis" {
+		rc := config.C.Redis
+		captcha.SetCustomStore(ecaptcha.NewRedisStore(&redis.Options{
+			Addr: 		rc.Addr,
+			Password: 	rc.Password,
+			DB:			cfg.RedisDB,
+		}, captcha.Expiration, logger.StandardLogger(), cfg.RedisPrefix))
+	}
+}
 
 // InitMonitor 初始化服务监控
 func InitMonitor(ctx context.Context) {

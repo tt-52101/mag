@@ -78,7 +78,7 @@ func BuildInjector() (*Provider, func(), error) {
 		MenuActionModel: menuAction,
 	}
 	handlerLogin := &handler.Login{
-		LoginBll: login,
+		LoginBiz: login,
 	}
 	trans := &dao.Trans{
 		DB: db,

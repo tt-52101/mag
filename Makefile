@@ -13,7 +13,7 @@ build:
 	@go build -ldflags "-w -s" -o $(SERVER_BIN) .
 
 start:
-	go run main.go web -c ./conf/config.toml -r ./conf/casbin.conf -m ./conf/menu.yaml
+	go run main.go web -c ./conf/config.toml -r ./conf/casbin.conf -m ./conf/menu.yaml -w ./web/dist
 
 swagger:
 	swag init --generalInfo ./server/swagger --output ./server/swagger

@@ -1,3 +1,4 @@
+
 package schema
 
 // StatusText 定义状态文本

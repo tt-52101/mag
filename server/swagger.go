@@ -11,7 +11,7 @@ package server
 
 // @title mag
 // @version 1.0.0
-// @description RBAC scaffolding based on GIN + GORM/MONGO + CASBIN + WIRE.
+// @description 基于Gin+Angular开发的管理平台脚手架
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization

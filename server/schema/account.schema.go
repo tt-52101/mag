@@ -2,7 +2,7 @@ package schema
 
 // LoginParam 登录参数
 type LoginParam struct {
-	UserName    string `json:"user_name" binding:"required"`    // 用户名
+	UserName    string `json:"username" binding:"required"`    // 用户名
 	Password    string `json:"password" binding:"required"`     // 密码(md5加密)
 	CaptchaID   string `json:"captcha_id" binding:"required"`   // 验证码ID
 	CaptchaCode string `json:"captcha_code" binding:"required"` // 验证码
@@ -11,7 +11,7 @@ type LoginParam struct {
 // UserLoginInfo 用户登录信息
 type UserLoginInfo struct {
 	UserID   string `json:"user_id"`   // 用户ID
-	UserName string `json:"user_name"` // 用户名
+	UserName string `json:"username"` // 用户名
 	RealName string `json:"real_name"` // 真实姓名
 	Roles    Roles  `json:"roles"`     // 角色列表
 }
